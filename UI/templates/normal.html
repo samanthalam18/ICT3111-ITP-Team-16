@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="float-container">
+    {% for image in images %}
+    <div class="image-name-container">
+        <div class="image-name">{{ image[1] }}</div>
+    </div>
+    <div class="float-child">
+        <div>
+            <div class="green"><img src="{{ url_for('upload_img', filename=image[0]) }}" class="img-fluid small-size"></div>
+        </div>
+    </div>
+    <div class="float-child">
+        <div>
+            <div class="blue"><img src="{{ url_for('enhanced_img', filename=image[0] + '_enhanced.jpg') }}" class="img-fluid small-size"></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
