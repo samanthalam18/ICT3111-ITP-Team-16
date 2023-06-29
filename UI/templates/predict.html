@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="float-container">
+    {% for i in range(uploaded_files|length) %}
+    <div class="float-child">
+        <h5 class="a">Uploaded Image {{ i+1 }}: {{ uploaded_files[i] }}</h5>
+        <div class="green"><img src="{{ url_for('upload_img', filename=uploaded_files[i]) }}" class="img-fluid"></div>
+    </div>
+
+    <div class="float-child">
+        <h5 class="a">Enhanced Image {{ i+1 }}: {{ enhanced_files[i] }}</h5>
+        <div class="blue"><img src="{{ url_for('enhanced_img', filename=enhanced_files[i]) }}" class="img-fluid"></div>
+    </div>
+    {% endfor %}
+</div>
+
+<a href="{{ url_for('history') }}" class="btn" style="display: block; margin: 10px auto; padding: 10px; width: 10%;">Load All</a>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %} {% block content %}
+
+<h2></h2>
+
+<div>
+	<form
+		id="upload-file"
+		action="/predict"
+		method="POST"
+		enctype="multipart/form-data"
+		onsubmit="showLoader()">
+
+		<center>
+			<div id="custom-alert"
+				 class="alert alert-danger alert-dismissible fade show"
+				 role="alert"
+				 style="display: none;">
+				<span id="custom-alert-message"></span>
+				<button type="button"
+						class="close"
+						data-dismiss="alert"
+						aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</center>
+
+		<div class="card">
+			<div class="card-header">
+				<h4>Upload Image
+					<span class="info-tooltip">
+					  <span class="info-icon"></span>
+					  <span class="tooltip-text">
+						  You can choose multiple images at once.
+						  Only JPG, JPEG, and PNG formats are allowed.</span>
+					</span>
+				</h4>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">Browse Image</h5>
+				<p class="card-text">
+					<input type="file" id="file" name="file" multiple />
+				</p>
+
+				<button type="submit" class="btn">Enhance</button>
+
+			</div>
+		</div>
+	</form>
+
+	<div class="loader-container">
+		<div class="loader" id="loader" style="display: none"></div>
+	</div>
+
+	<h3 id="result">
+		<span> </span>
+	</h3>
+</div>
+
+<script>
+
+	function showCustomAlert(message) {
+		var customAlert = document.getElementById('custom-alert');
+		var customAlertMessage = document.getElementById('custom-alert-message');
+
+		customAlertMessage.textContent = message;
+		customAlert.style.display = 'block';
+	}
+
+    function showLoader() {
+        document.getElementById('loader').style.display = 'block';
+        setTimeout(function() {
+            document.getElementById('loader').style.display = 'none';
+        }, 1500);
+    }
+
+    $(document).ready(function() {
+        $(".loader-container").hide();
+
+        $("#upload-file").on("submit", function(event) {
+            var fileInput = document.getElementById('file');
+            if (fileInput.files.length === 0) {
+                event.preventDefault();
+				showCustomAlert('Please select a file.');
+				$(".loader-container").hide();
+            } else {
+                var file = fileInput.files[0];
+				var fileType = file.type.toLowerCase();
+				var validExtensions = ['image/jpeg', 'image/png', 'image/jpg'];
+				if (!validExtensions.includes(fileType)) {
+                    event.preventDefault();
+                    showCustomAlert('Invalid file format.');
+          			$(".loader-container").hide();
+                } else {
+                    $(".loader-container").show();
+                    showLoader();
+                }
+            }
+        });
+    });
+</script>
+
+{% endblock %}
