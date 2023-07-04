@@ -1,5 +1,9 @@
 {% extends "base.html" %} {% block content %}
 
+<div class="download-container">
+    <a href="{{ url_for('download_all_history') }}" class="btn download-button">Download All</a>
+</div>
+
 <div class="float-container">
     {% for image in images %}
     <div class="image-name-container">
