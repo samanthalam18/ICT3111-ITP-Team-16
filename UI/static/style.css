@@ -42,10 +42,11 @@ footer .container {
 }
 
 .float-container {
+    margin-top: 0;
     border: 3px solid #fff;
     padding: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
@@ -156,7 +157,7 @@ footer .container {
 	100% { transform: rotate(360deg); } /* Ending position of the animation */
 }
 
- .info-icon {
+.info-icon {
     display: inline-block;
     width: 16px;
     height: 16px;
@@ -165,14 +166,14 @@ footer .container {
     margin-left: 5px;
     vertical-align: middle;
     cursor: pointer;
-  }
+}
 
-  .info-tooltip {
+.info-tooltip {
     position: relative;
     display: inline-block;
-  }
+}
 
-  .info-tooltip .tooltip-text {
+.info-tooltip .tooltip-text {
     visibility: hidden;
     width: 250px;
     background-color: #9A9DA7;
@@ -190,11 +191,21 @@ footer .container {
     font-style: Helvetica;
     font-size: 11px;
     letter-spacing: 0;
-  }
+}
 
-  .info-tooltip:hover .tooltip-text {
+.info-tooltip:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
-  }
+}
+
+.download-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.download-button {
+    margin: 0 50px 0 0;
+}
+
 
 

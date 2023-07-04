@@ -1,9 +1,11 @@
 import os
 import re
 import cv2
+import shutil
+import zipfile
 
 # Flask utils
-from flask import Flask, flash, request, render_template, send_from_directory
+from flask import Flask, flash, request, render_template, send_from_directory, send_file
 from werkzeug.utils import secure_filename
 
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png'}
@@ -135,6 +137,31 @@ def predict():
             enhanced_files.append(en_filename)
 
     return render_template('predict.html', uploaded_files=uploaded_files, enhanced_files=enhanced_files)
+
+
+@app.route('/download_all_history', methods=['GET'])
+def download_all_history():
+    # Create a temporary directory to store the images
+    temp_dir = 'temp_history'
+    os.makedirs(temp_dir, exist_ok=True)
+
+    # Copy all the files from the 'images' folder to the temporary directory
+    image_files = os.listdir(app.config['ENHANCED_FOLDER'])
+    for image_file in image_files:
+        src_path = os.path.join(app.config['ENHANCED_FOLDER'], image_file)
+        dst_path = os.path.join(temp_dir, image_file)
+        shutil.copy2(src_path, dst_path)
+
+    # Create a ZIP file containing all the images
+    zip_filename = 'images.zip'
+    with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for root, dirs, files in os.walk(temp_dir):
+            for file in files:
+                file_path = os.path.join(root, file)
+                zipf.write(file_path, os.path.relpath(file_path, temp_dir))
+
+    # Send the ZIP file for download
+    return send_file(zip_filename, as_attachment=True)
 
 
 if __name__ == '__main__':
