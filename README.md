@@ -21,18 +21,29 @@ Follow these steps to set up the project:
 2. Navigate to the project directory.
 3. Open a terminal and run the following command:
    `pip install -r requirements.txt`
-4. Visit `https://pytorch.org/` to download the appropriate Pytorch version. If you're using pip, add the `--force-install` flag.
-5. Download the models from the following Google Drive link: `https://drive.google.com/drive/folders/1m1NdVVHTWeTbTxiBsz91B7gKgqI3oiFj`
-6. Place the SWINIR model in the following directory: `ICT3111-ITP-Team-16\KAIR\denoising\swinir_denoising_gray_15\models`
-7. Place the pix2pix model in the following directory: `ICT3111-ITP-Team-16\pytorch-CycleGAN-and-pix2pix\checkpoints\pix2pix_NewData_Both`
+4. Visit [Pytorch](https://pytorch.org/) to download the appropriate Pytorch version. If you're using pip, add the `--force-install` flag.
+5. Download the models from the following [Google Drive link](https://drive.google.com/drive/folders/1m1NdVVHTWeTbTxiBsz91B7gKgqI3oiFj)
+6. **Replace** the existing `denoising` folder in `ICT3111-ITP-Team-16\KAIR\swinir_denoising_gray_15` with the downloaded `denoising` folder from the Google Drive.
+7. **Replace** the existing `checkpoints` folder in `ICT3111-ITP-Team-16\pytorch-CycleGAN-and-pix2pix` with the downloaded `checkpoints` folder from the Google Drive.
+
 
 ## Getting Started
 
-### Using VSCode
+### Getting Started with VSCode
 
-1. Open a new terminal.
-2. Run the following command:
-   `python -m flask run`
+1. Open a new terminal within VSCode.
+2. Navigate to the project's directory:
+```bash
+cd ICT3111-ITP-Team-16/Ui
+```
+3. Start the application by running the following command:
+```bash
+python -m flask run 
+```
+or you can run
+```
+python app.py
+```
 
 ### Using Pycharm
 
