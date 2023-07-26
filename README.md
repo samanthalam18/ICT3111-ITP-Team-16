@@ -23,8 +23,8 @@ Follow these steps to set up the project:
    `pip install -r requirements.txt`
 4. Visit [Pytorch](https://pytorch.org/) to download the appropriate Pytorch version. If you're using pip, add the `--force-install` flag.
 5. Download the models from the following [Google Drive link](https://drive.google.com/drive/folders/1m1NdVVHTWeTbTxiBsz91B7gKgqI3oiFj)
-6. **Add** the existing `denoising` folder in `ICT3111-ITP-Team-16\KAIR\swinir_denoising_gray_15` with the downloaded `denoising` folder from the Google Drive.
-7. **Add** the existing `checkpoints` folder in `ICT3111-ITP-Team-16\pytorch-CycleGAN-and-pix2pix` with the downloaded `checkpoints` folder from the Google Drive.
+6. **Place** the downloaded `denoising` folder from Google Drive into `ICT3111-ITP-Team-16\KAIR\`.
+7. **Place** the downloaded `checkpoints` folder from Google Drive into `ICT3111-ITP-Team-16\pytorch-CycleGAN-and-pix2pix`.
 
 
 ## Getting Started
