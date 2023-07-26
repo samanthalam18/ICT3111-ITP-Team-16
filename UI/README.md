@@ -12,7 +12,7 @@ To get started, follow these steps:
 2. Navigate to the project directory.
 3. Open a terminal and run the following command.
    `pip install -r requirements.txt`
-
+4. Go to `https://pytorch.org/` to download the appriopriate pytorch version. Tip if you are using pip add the `--force-install` flag.
 ## VSCode
 
 1. Open a new terminal.

@@ -9,7 +9,7 @@
 
     <div class="float-child">
         <h5 class="a">Enhanced Image {{ i+1 }}: {{ enhanced_files[i] }}</h5>
-        <div class="blue"><img src="{{ url_for('enhanced_img', filename=enhanced_files[i]) }}" class="img-fluid"></div>
+        <div class="blue"><img src="{{ url_for('enhanced_img', filename=enhanced_files[i].rsplit('.', 1)[0] + '.png') }}" class="img-fluid"></div>
     </div>
     {% endfor %}
 </div>
