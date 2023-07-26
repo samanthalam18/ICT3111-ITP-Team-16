@@ -23,14 +23,11 @@ To get started, follow these steps:
 
 1. Run app.py.
 
-## Usage
+## Usage in UI
 
 The project structure is organized as follows:
 
 -    **app.py**: This file contains the main Python logic, routing, and functions of the application.
-
-     -    Line 34 to Line 41: These lines are for testing purposes only and should be replaced with the correct enhanced function.
-     -    Line 129: This line should be replaced according to the requirements of the enhanced function.
 
 -    **templates**: This directory contains the HTML templates used by the application.
 
